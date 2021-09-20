@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ExpenseItem from "./ExpenseItem";
+import ExpensesList from "./ExpensesList";
 import ExpensesFilter from "./ExpensesFilter";
 import Card from "../UI/Card";
 import "./Expenses.css";
@@ -13,8 +13,27 @@ const Expenses = (props) => {
 
   const handleChangedFilter = (selectedYear) => {
     setfilteredYear(selectedYear);
-    console.log(selectedYear);
   };
+
+  //filter based on the selected year:
+  const filteredExpenses = props.items.filter((expense) => {
+    return expense.date.getFullYear() === parseInt(filteredYear);
+  });
+
+  /* 
+  More complex solution that is not really necessary to utalize since all we need to do is manupluate 
+  the already coming in data and add a condition of what should be rendered (aka filter)
+
+  const [filteredResult, setFilteredResult] = useState(props.items);
+
+  useEffect(() => {
+    (async () => {
+      const results = await props.items.filter((value) => {
+        return value.date.getFullYear() == parseInt(filteredYear);
+      });
+      setFilteredResult(results);
+    })();
+  }, [props.items, filteredYear]); */
 
   //By handling it like this, the ExpensesFilter is the component controlled by the Expenses component
 
@@ -24,9 +43,8 @@ const Expenses = (props) => {
         selected={filteredYear}
         onChangeFilter={handleChangedFilter}
       />
-      {props.items.map((item) => (
-        <ExpenseItem title={item.title} amount={item.amount} date={item.date} />
-      ))}
+      <ExpensesList items = {filteredExpenses} />
+     
     </Card>
   );
 };
