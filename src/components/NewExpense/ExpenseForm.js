@@ -28,7 +28,7 @@ const ExpenseForm = (props) => {
     //To-Do: figure out a way where I can already do it as soon as it's submitted within the state object userInput
     const expenseData = {
       title: userInput.title,
-      amount: parseInt(userInput.amount),
+      amount: +userInput.amount, //you can use + instead of parseInt()
       date: new Date(userInput.date),
     };
 
