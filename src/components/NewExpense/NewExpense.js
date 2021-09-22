@@ -1,6 +1,20 @@
 import React, { useState } from "react";
-import "./NewExpense.css";
+import styled from "styled-components";
 import ExpenseForm from "./ExpenseForm";
+import { Button } from "../UI/styles";
+
+const NewExpenseContainer = styled.div`
+  background-color: #a892ee;
+  padding: 1rem;
+  margin: 2rem auto;
+  width: 50rem;
+  max-width: 95%;
+  border-radius: 12px;
+  //align buttons dependent whether form is open or closed
+  text-align: ${props => props.open ? 'right' : 'center'};
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+`;
+
 
 const NewExpense = (props) => {
   //function is called within the ExpenseForm when submitting the expense and gets the expenseData passed to it
@@ -25,14 +39,11 @@ const NewExpense = (props) => {
   };
 
   return (
-    <div className="new-expense">
+    <NewExpenseContainer open={isOpen}>
       {!isOpen && (
-        <button
-          style={{ textAlign: "center" }}
-          onClick={handleOpenForm}
-        >
+        <Button onClick={handleOpenForm}>
           Add New Expense
-        </button>
+        </Button>
       )}
       {isOpen && (
         <ExpenseForm
@@ -40,7 +51,7 @@ const NewExpense = (props) => {
           onSaveExpenseData={handleSaveExpense}
         />
       )}
-    </div>
+    </NewExpenseContainer>
   );
 };
 

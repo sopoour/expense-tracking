@@ -3,7 +3,16 @@ import ExpensesList from "./ExpensesList";
 import ExpensesFilter from "./ExpensesFilter";
 import ExpensesChart from "./ExpensesChart";
 import Card from "../UI/Card";
-import "./Expenses.css";
+import styled from "styled-components";
+
+//Extend the Card styled component with additional properties
+const ExpenseCard = styled(Card)`
+  padding: 1rem;
+  background-color: rgb(31, 31, 31);
+  margin: 2rem auto;
+  width: 50rem;
+  max-width: 95%;
+`;
 
 const Expenses = (props) => {
   /* This is a stateful/smart component */
@@ -39,15 +48,14 @@ const Expenses = (props) => {
   //By handling it like this, the ExpensesFilter is the component controlled by the Expenses component
 
   return (
-    <Card className="expenses">
+    <ExpenseCard>
       <ExpensesFilter
         selected={filteredYear}
         onChangeFilter={handleChangedFilter}
       />
-      <ExpensesChart expenses={filteredExpenses}/>
-      <ExpensesList items = {filteredExpenses} />
-     
-    </Card>
+      <ExpensesChart expenses={filteredExpenses} />
+      <ExpensesList items={filteredExpenses} />
+    </ExpenseCard>
   );
 };
 

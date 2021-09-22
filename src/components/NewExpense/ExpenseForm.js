@@ -1,5 +1,31 @@
 import React, { useState } from "react";
-import "./ExpenseForm.css";
+import { Button } from "../UI/styles";
+import styled from "styled-components";
+
+const FormControl = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  text-align: left;
+`;
+
+const FormControlItem = styled.div`
+  & label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  & input {
+    font: inherit;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 20rem;
+    max-width: 100%;
+  }
+`;
 
 const ExpenseForm = (props) => {
   const [userInput, setUserInput] = useState({
@@ -28,7 +54,7 @@ const ExpenseForm = (props) => {
     //To-Do: figure out a way where I can already do it as soon as it's submitted within the state object userInput
     const expenseData = {
       title: userInput.title,
-      amount: +userInput.amount, //you can use + instead of parseInt()
+      amount: +userInput.amount, //+ is the same as parseInt()
       date: new Date(userInput.date),
     };
 
@@ -44,8 +70,8 @@ const ExpenseForm = (props) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="new-expense__controls">
-        <div className="new-expense__control">
+      <FormControl>
+        <FormControlItem>
           <label>Title</label>
           <input
             type="text"
@@ -53,8 +79,8 @@ const ExpenseForm = (props) => {
             onChange={handleChange}
             name="Title"
           />
-        </div>
-        <div className="new-expense__control">
+        </FormControlItem>
+        <FormControlItem>
           <label>Amount</label>
           <input
             type="number"
@@ -64,8 +90,8 @@ const ExpenseForm = (props) => {
             onChange={handleChange}
             name="Amount"
           />
-        </div>
-        <div className="new-expense__control">
+        </FormControlItem>
+        <FormControlItem>
           <label>Date</label>
           <input
             type="date"
@@ -75,12 +101,13 @@ const ExpenseForm = (props) => {
             onChange={handleChange}
             name="Date"
           />
-        </div>
-      </div>
-      <div className="new-expense__actions">
-        <button type="cancel" onClick={props.onCancel}> Cancel </button>
-        <button type="submit">Add Expense</button>
-      </div>
+        </FormControlItem>
+      </FormControl>
+      <Button type="cancel" onClick={props.onCancel}>
+        {" "}
+        Cancel{" "}
+      </Button>
+      <Button type="submit">Add Expense</Button>
     </form>
   );
 };
