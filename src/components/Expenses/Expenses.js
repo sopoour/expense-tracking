@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ExpensesList from "./ExpensesList";
 import ExpensesFilter from "./ExpensesFilter";
 import ExpensesChart from "./ExpensesChart";
-import Card from "../UI/Card";
+import { Card } from "../UI/styles";
 import styled from "styled-components";
 
 //Extend the Card styled component with additional properties

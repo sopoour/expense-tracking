@@ -1,5 +1,5 @@
 import ExpenseDate from "./ExpenseDate";
-import Card from "../UI/Card";
+import { Card } from "../UI/styles";
 import styled from "styled-components";
 
 const ExpenseItemCard = styled(Card)`

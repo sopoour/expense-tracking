@@ -104,8 +104,7 @@ const ExpenseForm = (props) => {
         </FormControlItem>
       </FormControl>
       <Button type="cancel" onClick={props.onCancel}>
-        {" "}
-        Cancel{" "}
+        Cancel
       </Button>
       <Button type="submit">Add Expense</Button>
     </form>

@@ -2,7 +2,17 @@ import React from "react";
 
 import ChartBar from "./ChartBar";
 
-import "./Chart.css";
+import styled from "styled-components";
+
+const ChartContainer = styled.div`
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: #f8dfff;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  height: 10rem;
+`;
 
 const Chart = (props) => {
   //get an own array of just the values for each month
@@ -11,7 +21,7 @@ const Chart = (props) => {
   //use spread operator (...) in order to pull out all the array elements from dataPointValues to be inserted in the List created by Math.max
   const totalMaximum = Math.max(...dataPointValues);
   return (
-    <div className="chart">
+    <ChartContainer>
       {/* Create a ChartBar for each dataPoint (12 in total since 12 months*/}
       {props.dataPoints.map((dataPoint) => (
         <ChartBar
@@ -21,7 +31,7 @@ const Chart = (props) => {
           label={dataPoint.label}
         />
       ))}
-    </div>
+    </ChartContainer>
   );
 };
 

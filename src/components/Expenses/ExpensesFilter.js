@@ -1,6 +1,31 @@
 import React from "react";
 
-import "./ExpensesFilter.css";
+import styled from "styled-components";
+
+const ExpenseFilterContainer = styled.div`
+  color: white;
+  padding: 0 1rem;
+
+  & div {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem 0;
+  }
+
+  & label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  & select {
+    font: inherit;
+    padding: 0.5rem 3rem;
+    font-weight: bold;
+    border-radius: 6px;
+  }
+`;
 
 const ExpensesFilter = (props) => {
   //in the child component pass the listened event change up to the parent component
@@ -10,8 +35,8 @@ const ExpensesFilter = (props) => {
   };
 
   return (
-    <div className="expenses-filter">
-      <div className="expenses-filter__control">
+    <ExpenseFilterContainer>
+      <div>
         <label>Filter by year</label>
         <select value={props.selected} onChange={handleDropdownChange}>
           <option value="2022">2022</option>
@@ -20,7 +45,7 @@ const ExpensesFilter = (props) => {
           <option value="2019">2019</option>
         </select>
       </div>
-    </div>
+    </ExpenseFilterContainer>
   );
 };
 
