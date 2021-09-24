@@ -1,6 +1,6 @@
 # expense-tracking
 
-This is a React app built as part of a React online coursee. 
+This is a React app built as part of a [React online course](https://www.udemy.com/share/101Wby3@B2H-tHB8Vq5CLeowwy0mgk_LJh3kKxgPbIXM1QThCfnt2JIH2wiSLDdrDDvdZ-Ts/). 
 
 Current features:
 * Add new expense via an expense form
