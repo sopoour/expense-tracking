@@ -2,6 +2,8 @@
 
 This is a React app built as part of a [React online course](https://www.udemy.com/share/101Wby3@B2H-tHB8Vq5CLeowwy0mgk_LJh3kKxgPbIXM1QThCfnt2JIH2wiSLDdrDDvdZ-Ts/). 
 
+You can find a demo here: https://sophiaauer.me/expense-tracking/
+
 Current features:
 * Add new expense via an expense form
 * Have all expenses shown as card with date, name and amount
