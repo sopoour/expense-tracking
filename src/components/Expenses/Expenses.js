@@ -6,7 +6,7 @@ import { Card } from "../UI/styles";
 import styled from "styled-components";
 
 //Extend the Card styled component with additional properties
-const ExpenseCard = styled(Card)`
+const ExpensesCard = styled(Card)`
   padding: 1rem;
   background-color: rgb(31, 31, 31);
   margin: 2rem auto;
@@ -48,14 +48,14 @@ const Expenses = (props) => {
   //By handling it like this, the ExpensesFilter is the component controlled by the Expenses component
 
   return (
-    <ExpenseCard>
+    <ExpensesCard>
       <ExpensesFilter
         selected={filteredYear}
         onChangeFilter={handleChangedFilter}
       />
       <ExpensesChart expenses={filteredExpenses} />
       <ExpensesList items={filteredExpenses} />
-    </ExpenseCard>
+    </ExpensesCard>
   );
 };
 
